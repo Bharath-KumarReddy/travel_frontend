@@ -38,25 +38,39 @@ export const AuthLogin = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    
     try {
-      
+      if(!isNumberValid){
+        setAlert({
+          open:true,
+          message:`Invalid Number,length should be 10 digits`,
+          type:"error"
+        })
+      }else if(!isPasswordValid){
+        setAlert({
+          open:true,
+          message:`password contains at least one lowercase letter, one uppercase letter, one digit, one special character, and has a minimum length of 5`,
+          type:"error"
+        })
+      }else {
         const { accessToken, username } = await loginHandler(number, password, setAlert);
+          authDispatch({
+            type: "SET_ACCESS_TOKEN",
+            payload: accessToken,
+          });
+          authDispatch({
+            type: "SET_USER_NAME",
+            payload: username,
+          });
+    
+        
         authDispatch({
-          type: "SET_ACCESS_TOKEN",
-          payload: accessToken,
+          type: "CLEAR_USER_DATA",
         });
         authDispatch({
-          type: "SET_USER_NAME",
-          payload: username,
+          type: "SHOW_AUTH_MODAL",
         });
-  
-      
-      authDispatch({
-        type: "CLEAR_USER_DATA",
-      });
-      authDispatch({
-        type: "SHOW_AUTH_MODAL",
-      });
+      }
 
     } catch (error) {
       setAlert({
@@ -70,6 +84,7 @@ export const AuthLogin = () => {
 
   const handleTestCredentialsClick = async () => {
     try {
+
       const { accessToken, username } = await loginHandler(
         "7878787878",
         "Abcd@239",

@@ -10,6 +10,7 @@ import {
 
 import { signupHandler } from "../../services";
 import { flag } from '../../services/signup-service';
+import { type } from '@testing-library/user-event/dist/type';
 let isNumberValid,
   isNameValid,
   isEmailValid,
@@ -25,43 +26,41 @@ export const AuthSignup = () => {
   
   const { setAlert } = useAlert();
 
-  const handleNumberChange = (event) => {
-    isNumberValid = validateNumber(event.target.value);
+  const handleNumberChange =  (event) => {
+    isNumberValid =  validateNumber(event.target.value);
     if (isNumberValid) {
       console.log("Valid Input");
       authDispatch({
         type: "NUMBER",
         payload: event.target.value,
       });
-    } else {
-      console.log("Invalid Number");
-    }
+    } 
   };
 
-  const handleNameChange = (event) => {
-    isNameValid = validateName(event.target.value);
-    if (isNameValid) {
-      console.log("Valid Input");
-      authDispatch({
-        type: "NAME",
-        payload: event.target.value,
-      });
-    } else {
-      console.log("Invalid Name");
-    }
+  const handleNameChange =  (event) => {
+  
+      
+      isNameValid =  validateName(event.target.value);
+      if (isNameValid) {
+        console.log("Valid Input");
+        authDispatch({
+          type: "NAME",
+          payload: event.target.value,
+        });
+      } 
+    
   };
 
-  const handleEmailChange = (event) => {
-    isEmailValid = validateEmail(event.target.value);
+  const handleEmailChange =  (event) => {
+    isEmailValid=  validateEmail(event.target.value);
     if (isEmailValid) {
       console.log("Valid Input");
       authDispatch({
         type: "EMAIL",
         payload: event.target.value,
       });
-    } else {
-      console.log("Invalid Email");
-    }
+    } 
+    
   };
 
   const handlePasswordChange = (event) => {
@@ -72,22 +71,18 @@ export const AuthSignup = () => {
         type: "PASSWORD",
         payload: event.target.value,
       });
-    } else {
-      console.log("Invalid Password");
-    }
+    } 
   };
 
-  const handleConfirmPasswordChange = (event) => {
-    isConfirmPasswordValid = validatePassword(event.target.value);
+  const handleConfirmPasswordChange =  (event) => {
+    isConfirmPasswordValid =validatePassword(event.target.value);
     if (isConfirmPasswordValid) {
       console.log("Valid Input");
       authDispatch({
         type: "CONFIRM_PASSWORD",
         payload: event.target.value,
       });
-    } else {
-      console.log("Invalid Password");
-    }
+    } 
   };
 
   // const handleFormSubmit = async (event) => {
@@ -122,6 +117,60 @@ export const AuthSignup = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    if(confirmPassword != password){
+      setAlert({
+        open:true,
+        message:`passwords do not matched`,
+        type:"error"
+      })
+      
+    }
+
+    else if(!isNumberValid){
+      setAlert({
+        open:true,
+        message:`Invalid Number,length should be 10 digits`,
+        type:"error"
+      })
+      return;
+    }
+
+    else if(!isNameValid){
+      setAlert({
+        open:true,
+        message:`Invalid Name,should contain only alphabets`,
+        type:"error"
+      })
+      return;
+    }
+
+    // if(!isEmailValid){
+    //   setAlert({
+    //     open:true,
+    //     message:`Invalid Email`,
+    //     type:"error"
+    //   })
+    //   return;
+    // }
+
+   else if(!isPasswordValid){
+      setAlert({
+        open:true,
+        message:`password contains at least one lowercase letter, one uppercase letter, one digit, one special character, and has a minimum length of 5`,
+        type:"error"
+      })
+      return;
+    }
+
+    else if(!isConfirmPasswordValid){
+      setAlert({
+        open:true,
+        message:`Invalid password`,
+        type:"error"
+      })
+      return;
+    }else {
+       
     if (
       isNumberValid &&
       isNameValid &&
@@ -130,13 +179,24 @@ export const AuthSignup = () => {
       isConfirmPasswordValid
     ) {
       await signupHandler(username, number, email, password, setAlert);
-    }
-  
-    console.log(flag);
-    if (flag !=1) {
+      console.log(flag);
+     if (flag !=1) {
       authDispatch({ type: "SET_TO_LOGIN" });
       authDispatch({ type: "CLEAR_USER_DATA" });
+     }
+    }else {
+      setAlert({
+        open:true,
+        message:`try again,an error ocurred`,
+        type:"error"
+      })
+     
     }
+    }
+ 
+   
+  
+    
   };
   
 
