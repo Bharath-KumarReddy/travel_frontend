@@ -1,78 +1,88 @@
-# Getting Started with Create React App
+# Getting Started with Travel App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project consists of a **Frontend** and a **Backend**. Below are the steps to get the application up and running.
 
-## Available Scripts
+## Clone the Project
 
-In the project directory, you can run:
+To get started, clone the repository:
 
-### `npm start`
+```
+git clone https://github.com/Bharath-KumarReddy/travel_frontend.git
+git clone https://github.com/Bharath-KumarReddy/travel_Backend.git
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Install Dependencies
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Frontend
 
-### `npm test`
+1. Navigate to the frontend project directory:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+cd travel_frontend
+```
 
-### `npm run build`
+2. Install the required dependencies:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Start the frontend application:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+npm run start
+```
 
-### `npm run eject`
+This will start the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Backend
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Navigate to the backend project directory:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+cd travel_Backend
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. Install the required dependencies:
 
-## Learn More
+```
+npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. Start the backend server using **Nodemon**:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+nodemon server.js
+```
 
-### Code Splitting
+This will start the backend server.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Environment Variables
 
-### Analyzing the Bundle Size
+Make sure to set up the following environment variables in a `.env` file:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
+```
+DATABASE_URI=your-database-uri
+PASSWORD_SECRET_KEY=your-password-secret-key
+ACCESS_TOKEN=your-access-token-secret
+REDIS_URL=your-redis-url
+```
 ### Deployment
+The Frontend Live Demo link: [Live Demo](https://breezetravel.vercel.app/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+# Git Repository  
 
-### `npm run build` fails to minify
+The Frontend application Git repo and code can be accessed at the following link:  
+[Git Repo](https://github.com/Bharath-KumarReddy/travel_frontend)  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The Backend application Git repo and code can be accessed at the following link:  
+[Git Repo](https://github.com/Bharath-KumarReddy/travel_Backend)  
+
+## Optimized Data Retrieval with Redis Caching  
+Implemented **caching using Redis** to improve data retrieval efficiency, reducing database load and enhancing response times. Cached frequently accessed data, ensuring optimal performance for users while maintaining real-time updates.  
+
+![image](https://github.com/user-attachments/assets/bab0df4e-19dd-4282-866c-2abc9d85d97b)  
+
+![image](https://github.com/user-attachments/assets/c7960500-613e-4413-9c10-8a8373116f5e)  
 
 
-
-The Frontend application Git repo,code can be accessed at the following link:  
-[Live Demo](https://github.com/Bharath-KumarReddy/travel_frontend)
-
-The Backend application Git repo,coode can be accessed at the following link:  
-[Live Demo](https://github.com/Bharath-KumarReddy/travel_Backend) 
