@@ -14,6 +14,7 @@ const initialValue = {
   selectedTab: "login",
 };
 
+
 const AuthContext = createContext(initialValue);
 
 const AuthProvider = ({ children }) => {

@@ -5,7 +5,7 @@ import "./Categories.css";
 
 export const Categories = () => {
   const [categories, setCategories] = useState([]);
-  const [startIndex, setStartIndex] = useState(0); // Track the index of the first visible category
+  const [startIndex, setStartIndex] = useState(0); 
   const { hotelCategory, setHotelCategory } = useCategory();
   const { filterDispatch } = useFilter();
 

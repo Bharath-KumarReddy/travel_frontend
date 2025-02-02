@@ -1,7 +1,4 @@
-export const authReducer = (state, {
-    type,
-    payload
-  }) => {
+export const authReducer = (state, { type, payload }) => {
     switch (type) {
       case "SHOW_AUTH_MODAL":
         return {

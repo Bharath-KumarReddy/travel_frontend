@@ -3,7 +3,7 @@ import axios from "axios";
 export const loginHandler = async (number, password, setAlert) => {
   try {
     const {data: { accessToken, username },} = await axios.post(
-      "https://travel-backend-1-yxqk.onrender.com/api/auth/login",
+      "https://travel-backend-3-p68x.onrender.com/api/auth/login",
       {
         number: number,
         password: password,

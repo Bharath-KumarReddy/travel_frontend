@@ -16,7 +16,7 @@ export const SearchStayWithDate = () => {
     (async () => {
       try {
         const { data } = await axios.get(
-          `https://travel-backend-1-yxqk.onrender.com/api/hotels?category=${hotelCategory}`
+          `https://travel-backend-3-p68x.onrender.com/api/hotels?category=${hotelCategory}`
         );
         setHotels(data);
       } catch (err) {
