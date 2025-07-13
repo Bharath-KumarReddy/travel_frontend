@@ -1,6 +1,5 @@
 import axios from "axios";
-import { useAuth } from "../context";
-import { type } from "@testing-library/user-event/dist/type";
+// import { useAuth } from "../context";
 export var flag =0;
 export const signupHandler = async (username, number, email, password,setAlert) => {
  

@@ -2,7 +2,6 @@ import "./Auth.css";
 import { validateNumber, validatePassword } from "../../utlis";
 import { loginHandler } from "../../services";
 import { useAuth, useAlert } from "../../context";
-import { type } from "@testing-library/user-event/dist/type";
 
 let isNumberValid, isPasswordValid;
 
@@ -82,38 +81,38 @@ export const AuthLogin = () => {
     }
   };
 
-  const handleTestCredentialsClick = async () => {
-    try {
+  // const handleTestCredentialsClick = async () => {
+  //   try {
 
-      const { accessToken, username } = await loginHandler(
-        "7878787878",
-        "Abcd@239",
-      );
-      authDispatch({
-        type: "SET_ACCESS_TOKEN",
-        payload: accessToken,
-      });
-      authDispatch({
-        type: "SET_USER_NAME",
-        payload: username,
-      });
-      authDispatch({
-        type: "CLEAR_USER_DATA",
-      });
-      authDispatch({
-        type: "SHOW_AUTH_MODAL",
-      });
-    } catch (error) {
-       console.log(error.message);
-       setAlert({
-        open:true,
-        message:`unable to login -${error.message}`,
-        type:"error"
-       })
+  //     const { accessToken, username } = await loginHandler(
+  //       "7878787878",
+  //       "Abcd@239",
+  //     );
+  //     authDispatch({
+  //       type: "SET_ACCESS_TOKEN",
+  //       payload: accessToken,
+  //     });
+  //     authDispatch({
+  //       type: "SET_USER_NAME",
+  //       payload: username,
+  //     });
+  //     authDispatch({
+  //       type: "CLEAR_USER_DATA",
+  //     });
+  //     authDispatch({
+  //       type: "SHOW_AUTH_MODAL",
+  //     });
+  //   } catch (error) {
+  //      console.log(error.message);
+  //      setAlert({
+  //       open:true,
+  //       message:`unable to login -${error.message}`,
+  //       type:"error"
+  //      })
 
-    }
+  //   }
     
-  };
+  // };
 
   return (
     <div className="auth-container">

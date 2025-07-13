@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import "./Auth.css";
 import { useAuth, useAlert } from "../../context";
 import {
@@ -10,7 +9,7 @@ import {
 
 import { signupHandler } from "../../services";
 import { flag } from '../../services/signup-service';
-import { type } from '@testing-library/user-event/dist/type';
+
 let isNumberValid,
   isNameValid,
   isEmailValid,
@@ -19,7 +18,7 @@ let isNumberValid,
 
 export const AuthSignup = () => {
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const { username, email, password, number, confirmPassword, authDispatch } =
     useAuth();
