@@ -19,7 +19,7 @@ export const Categories = () => {
     (async () => {
       try {
         const { data } = await axios.get(
-          "https://travel-backend-1-yxqk.onrender.com/api/category"
+          "https://travel-backend-3-p68x.onrender.com/api/category"
         );
         setCategories(data);
       } catch (err) {
